@@ -60,6 +60,9 @@ void test_extra()
 	crea_sala(CAPACIDAD_CUYAS);
 	// intento liberar un asiento que ya está libre
 	DebeSerCierto(libera_asiento(5) == -1);
+	elimina_sala();	
+	DebeSerCierto(crea_sala(2147483648) == -1);
+
 	FIN_TEST("Extra");
 }
 
