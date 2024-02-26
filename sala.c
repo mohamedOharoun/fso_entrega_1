@@ -1,8 +1,8 @@
 #include "stdio.h"
 #include "stdlib.h"
 #include "./sala.h"
+#define CAPACIDAD_MAXIMA 2147483647
 
-const int CAPACIDAD_MAXIMA = 2147483647;
 int capacity_sala = -1;
 int* sala;
 int ocupados = 0;
