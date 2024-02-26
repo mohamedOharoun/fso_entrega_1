@@ -7,7 +7,7 @@ int capacity_sala = -1;
 int* sala;
 int ocupados = 0;
 
-int crea_sala(const int capacidad) {
+int crea_sala(int capacidad) {
     if(capacity_sala != -1 || CAPACIDAD_MAXIMA < capacidad) return -1;
     if(capacidad < 1) return -1;
 
@@ -52,7 +52,7 @@ int libera_asiento(int id_asiento) {
     return status;
 }
 
-int reserva_asiento(const int id_persona) {
+int reserva_asiento(int id_persona) {
     if(capacity_sala == -1) return -1;
     if(id_persona < 1) return -1;
     if(ocupados == capacity_sala) return -1;
