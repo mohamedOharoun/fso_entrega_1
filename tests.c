@@ -50,7 +50,8 @@ void test_extra()
 	// intento reservar todos los asientos
 	for(int i = 0; i < capacidad_sala(); i++){
 		reserva_asiento(i+1);
-		DebeSerCierto(estado_asiento(i+1)>=0);
+		// Se comprueba que el estado del asiento tiene la id correspondiente.
+		DebeSerCierto(estado_asiento(i+1)==i+1);
 	}
 	// si los he reservado todos no puede quedar ninguno libre
 	DebeSerCierto(asientos_libres()==0);
@@ -61,6 +62,9 @@ void test_extra()
 	// intento liberar un asiento que ya está libre
 	DebeSerCierto(libera_asiento(5) == -1);
 	elimina_sala();	
+	// Si se intenta eliminar de nuevo una sala
+	DebeSerCierto(elimina_sala() == -1);
+	// Si se intenta crear una sala con una capacidad superior al límite permitido.
 	DebeSerCierto(crea_sala(2147483648) == -1);
 
 	FIN_TEST("Extra");
